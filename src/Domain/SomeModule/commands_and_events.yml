@@ -1,0 +1,23 @@
+---
+
+namespace: Domain\SomeModule
+
+types:
+  SomeProcessIdentifier:
+    type: \Domain\SomeModule\Types\SomeProcessIdentifier
+    serializer: >
+      {param}->toString()
+    deserializer: >
+      SomeProcessIdentifier::fromString({param})
+
+commands:
+  InitiateSomeProcess:
+    fields:
+      identifier: SomeProcessIdentifier
+
+events:
+  EventAOccurred:
+    fields:
+      identifier: SomeProcessIdentifier
+  EventBOccurred:
+    fields: []
